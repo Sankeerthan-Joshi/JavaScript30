@@ -37,29 +37,39 @@
     
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
+    console.log(inventors.filter((element)=>{if(Math.floor(element.year/100)===15){return true}}))
 
     // Array.prototype.map()
     // 2. Give us an array of the inventors first and last names
+    console.log(inventors.map((element)=>(element.first + " " + element.last)))
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
-
+    console.log(inventors.sort((element, nextElement)=>(element.year-nextElement.year)))
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live all together?
+    console.log(inventors.reduce((acc, element)=>(acc+element.passed-element.year), 0))
 
     // 5. Sort the inventors by years lived
-
+    console.log(inventors.sort((element, nextElement)=>
+      -((element.passed-element.year)-(nextElement.passed-nextElement.year))))
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
+    console.log(people.sort())
+
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
-
+    let obj = {};
+    for(let i=0; i<data.length; i++){
+      obj[data[i]] = obj[data[i]]+1 || 1;
+    }
+    console.log(obj)
   </script>
 </body>
 </html>
